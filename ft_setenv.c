@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 10:05:50 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/07/09 15:52:13 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:01:59 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ void env_setup(char *str, char *envval)
 	int run;
 
 	char *tmp;
-	run = 1;
-	run++;
+	char **store;
+
+	Data = (char **)realloc(sizeof(char *) * (envLen(Data)));
+
+	Data[envLen + 1] = tmp;
+
 	tmp = ft_strjoin(str, ft_strjoin("=", envval));
 	ft_putendl(tmp);
 }
