@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 10:05:50 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/07/09 14:32:33 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/07/09 15:25:46 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static size_t	envLen(char **Data)
 		x++;
 	}
 	return (x);
-	ft_putnbr(x);
 }
 
 void env_setup(char *str, char *envval)
@@ -30,9 +29,8 @@ void env_setup(char *str, char *envval)
 	int run;
 
 	char *tmp;
-	run = envLen(Data);
-	ft_putnbr(run);
-	//ft_putendl(str);
+	run = 1;
+	run++;
 	tmp = ft_strjoin(str, ft_strjoin("=", envval));
 	ft_putendl(tmp);
 }
