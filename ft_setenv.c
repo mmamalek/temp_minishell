@@ -24,19 +24,45 @@ static size_t	envLen(char **Data)
 	return (x);
 }
 
+void env_copy(char **env)
+{
+	int x;
+
+	x = 0;
+	while(Data[x] != NULL)
+	{
+		env[x] = Data[x];
+		x++;
+	}
+	env[x] = NULL;
+}
+
+// void env_free()
+// {
+// 	char x;
+
+// 	x = 0;
+// 	while(Data[x] != NULL)
+// 	{
+// 		free(Data[x]);
+// 		x++;
+// 	}
+// }
+
 void env_setup(char *str, char *envval)
 {
-	int run;
-
 	char *tmp;
 	char **store;
 
-	Data = (char **)realloc(sizeof(char *) * (envLen(Data)));
 
-	Data[envLen + 1] = tmp;
-
+	store = (char **)malloc(sizeof(char *) * (envLen(Data) + 1));
+	env_copy(store);
+	free(Data);
+	Data = NULL;
+	Data = store;
 	tmp = ft_strjoin(str, ft_strjoin("=", envval));
-	ft_putendl(tmp);
+	Data[envLen(Data)] = tmp;
+	Data[envLen(Data) + 1] = NULL;
 }
 
 

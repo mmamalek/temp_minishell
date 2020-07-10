@@ -46,9 +46,6 @@ static void printData()
 
 static int check_args(char **str)
 {
-	int run;
-
-	run = 1;
 
 	if (!str || !*str || !**str || str[0] == NULL)
 		return (1);
@@ -90,9 +87,9 @@ static void readFiles(char **arg)
 		}
 		if (process > 0)
 			wait(&process);
-			if (ft_strcmp(str, "exit") == 0)
-				exit(0);
-	}
+		if (ft_strcmp(str, "exit") == 0)
+			exit(0);
+}
 }
 
 static void getData(char **str)

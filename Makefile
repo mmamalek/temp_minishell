@@ -20,9 +20,9 @@ OBJ = $(SRC:.c=.o)
 
 $(NAME) :
 		@gcc -c $(SRC) $(FLAGS)
-		@ar rc $(NAME) $(OBJ)
-		@ranlib $(NAME)
-		@rm -rf $(OBJ)
+		@gcc -o $(NAME) $(OBJ) ./libft2/libft.a
+		# @ranlib $(NAME)
+		# @rm -rf $(OBJ)
 
 all: $(NAME)
 
@@ -33,7 +33,7 @@ fclean: clean
 		rm -rf $(NAME)
 
 c:
-	@gcc $(FLAGS) main.c libft/libft.a $(NAME) -o shell
+	@gcc $(FLAGS) main.c libft2/libft.a $(NAME) -o shell
 
 re: fclean all
 
